@@ -81,6 +81,7 @@
         <div class="project-list">
           <article
             class="project project--wide reveal"
+            data-project-id="shangrila"
             data-title="Shangrila Resort"
             data-location="Ombey, Ladakh"
             data-year="Hospitality · Built"
@@ -111,6 +112,7 @@
 
           <article
             class="project reveal"
+            data-project-id="apple-orchard"
             data-title="Apple Orchard"
             data-location="Hunder, Ladakh"
             data-year="Hospitality · Built"
@@ -141,6 +143,7 @@
 
           <article
             class="project reveal"
+            data-project-id="bauhaus-kumaon"
             data-title="Bauhaus Kumaon"
             data-location="Near Almora, Uttarakhand"
             data-year="Community · Built"
@@ -171,6 +174,7 @@
 
           <article
             class="project project--landscape reveal"
+            data-project-id="green-tara"
             data-title="Green Tara Gompa"
             data-location="Hunder, Ladakh"
             data-year="Sacred · Built"
@@ -201,6 +205,7 @@
 
           <article
             class="project reveal"
+            data-project-id="kangri-chaupal"
             data-title="Kangri Chaupal"
             data-location="Nagrota Bagwan, Himachal Pradesh"
             data-year="Community · Proposal"
@@ -231,6 +236,7 @@
 
           <article
             class="project reveal"
+            data-project-id="apple-cottage"
             data-title="Apple Cottage"
             data-location="Hunder, Ladakh"
             data-year="Interior · Built"
@@ -359,14 +365,40 @@
 
     <dialog class="project-dialog" aria-labelledby="dialog-title">
       <button class="dialog__close" type="button" aria-label="Close project">Close ×</button>
-      <div class="dialog__image">
-        <img src="assets/images/green-tara-wide.jpg" alt="" width="800" height="600">
-      </div>
-      <div class="dialog__content">
-        <p class="dialog__type"></p>
-        <h2 id="dialog-title"></h2>
-        <p class="dialog__location"></p>
-        <p class="dialog__description"></p>
+      <div class="dialog__scroll">
+        <header class="dialog__header">
+          <div class="dialog__heading">
+            <p class="dialog__type"></p>
+            <h2 id="dialog-title"></h2>
+            <p class="dialog__location"></p>
+          </div>
+          <div class="dialog__introduction">
+            <p class="dialog__description"></p>
+            <dl class="dialog__facts"></dl>
+          </div>
+        </header>
+        <figure class="dialog__hero">
+          <img src="assets/images/green-tara-wide.jpg" alt="" width="1200" height="800">
+          <figcaption></figcaption>
+        </figure>
+        <section class="dialog__story" aria-labelledby="dialog-story-title">
+          <div>
+            <p class="kicker">Design approach</p>
+            <h3 id="dialog-story-title"></h3>
+          </div>
+          <div>
+            <p class="dialog__detail"></p>
+            <div class="dialog__materials" aria-label="Project materials"></div>
+          </div>
+        </section>
+        <section class="dialog__gallery-section" aria-labelledby="dialog-gallery-title">
+          <div class="dialog__gallery-heading">
+            <p class="kicker">From the portfolio</p>
+            <h3 id="dialog-gallery-title">Process &amp; details</h3>
+            <p class="dialog__image-count"></p>
+          </div>
+          <div class="dialog__gallery"></div>
+        </section>
       </div>
     </dialog>
   </body>

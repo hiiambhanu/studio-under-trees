@@ -572,19 +572,18 @@ button {
 }
 
 .project-dialog {
-  width: min(1100px, calc(100vw - 40px));
+  width: min(1380px, calc(100vw - 30px));
   max-width: none;
-  height: min(760px, calc(100vh - 40px));
+  height: calc(100vh - 30px);
   max-height: none;
   padding: 0;
   border: 0;
   background: var(--paper);
   color: var(--ink);
-  grid-template-columns: 1.35fr 0.85fr;
 }
 
 .project-dialog[open] {
-  display: grid;
+  display: block;
   animation: dialog-in 400ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
@@ -594,10 +593,10 @@ button {
 }
 
 .dialog__close {
-  position: absolute;
-  z-index: 2;
-  top: 20px;
-  right: 20px;
+  position: fixed;
+  z-index: 3;
+  top: 34px;
+  right: max(34px, calc((100vw - 1380px) / 2 + 20px));
   padding: 7px 10px;
   border: 1px solid currentColor;
   background: var(--paper);
@@ -607,53 +606,196 @@ button {
   text-transform: uppercase;
 }
 
-.dialog__image {
-  min-height: 0;
-  background: #d1cec3;
-}
-
-.dialog__image img {
+.dialog__scroll {
   height: 100%;
-  object-fit: cover;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-.dialog__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(35px, 6vw, 85px);
+.dialog__header {
+  display: grid;
+  min-height: 68vh;
+  align-items: end;
+  padding: clamp(90px, 12vh, 150px) clamp(25px, 6vw, 95px) clamp(55px, 9vh, 100px);
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 7vw;
+}
+
+.dialog__heading {
+  align-self: end;
 }
 
 .dialog__type {
-  margin: 0 0 8vh;
+  margin: 0 0 7vh;
   color: var(--muted);
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.dialog__content h2 {
+.dialog__heading h2 {
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(42px, 5vw, 78px);
+  font-size: clamp(62px, 8vw, 125px);
   font-weight: 400;
   letter-spacing: -0.05em;
-  line-height: 0.95;
+  line-height: 0.88;
 }
 
 .dialog__location {
-  margin: 14px 0 7vh;
+  margin: 22px 0 0;
   color: var(--clay);
   font-family: var(--serif);
-  font-size: 17px;
+  font-size: clamp(17px, 1.5vw, 23px);
 }
 
 .dialog__description {
-  margin: 0;
+  margin: 0 0 8vh;
   color: var(--muted);
   font-family: var(--serif);
-  font-size: clamp(16px, 1.35vw, 20px);
+  font-size: clamp(18px, 1.6vw, 25px);
   line-height: 1.5;
+}
+
+.dialog__facts {
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.dialog__facts div {
+  display: grid;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 20px;
+}
+
+.dialog__facts dt,
+.dialog__facts dd {
+  margin: 0;
+  font-size: 10px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.dialog__facts dt {
+  color: var(--muted);
+}
+
+.dialog__hero {
+  margin: 0;
+}
+
+.dialog__hero img {
+  width: 100%;
+  height: min(76vh, 820px);
+  background: #d1cec3;
+  object-fit: cover;
+}
+
+.dialog__hero figcaption {
+  padding: 8px clamp(25px, 6vw, 95px);
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 12px;
+}
+
+.dialog__story {
+  display: grid;
+  padding: 16vh clamp(25px, 6vw, 95px);
+  grid-template-columns: 1fr 1fr;
+  gap: 8vw;
+}
+
+.dialog__story h3,
+.dialog__gallery-heading h3 {
+  margin: 35px 0 0;
+  font-family: var(--serif);
+  font-size: clamp(40px, 5vw, 76px);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.96;
+}
+
+.dialog__detail {
+  margin: 0 0 7vh;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: clamp(18px, 1.7vw, 26px);
+  line-height: 1.5;
+}
+
+.dialog__materials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dialog__materials span {
+  padding: 7px 11px;
+  border: 1px solid var(--line);
+  border-radius: 50px;
+  font-size: 10px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.dialog__gallery-section {
+  padding: 14vh clamp(25px, 6vw, 95px);
+  background: #dedbd1;
+}
+
+.dialog__gallery-heading {
+  display: grid;
+  align-items: end;
+  margin-bottom: 10vh;
+  grid-template-columns: 0.7fr 1.6fr 0.4fr;
+  gap: 30px;
+}
+
+.dialog__gallery-heading h3 {
+  margin: 0;
+}
+
+.dialog__image-count {
+  margin: 0;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.07em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.dialog__gallery {
+  display: grid;
+  align-items: start;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 8vh 2vw;
+}
+
+.dialog__gallery figure {
+  margin: 0;
+  grid-column: span 6;
+}
+
+.dialog__gallery figure:nth-child(3n + 1) {
+  grid-column: 2 / span 8;
+}
+
+.dialog__gallery img {
+  width: 100%;
+  max-height: 72vh;
+  background: #c8c5ba;
+  object-fit: cover;
+}
+
+.dialog__gallery figcaption {
+  display: grid;
+  padding-top: 9px;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 12px;
+  grid-template-columns: 35px 1fr;
 }
 
 .reveal {
@@ -822,12 +964,8 @@ button {
     grid-column: 2;
   }
 
-  .project-dialog {
-    grid-template-columns: 1fr 0.9fr;
-  }
-
-  .dialog__content {
-    padding: 35px;
+  .dialog__header {
+    grid-template-columns: 1.1fr 0.9fr;
   }
 
   .footer {
@@ -937,25 +1075,71 @@ button {
     border-top: 1px solid rgba(29, 33, 29, 0.22);
   }
 
-  .project-dialog,
-  .project-dialog[open] {
-    height: calc(100vh - 24px);
-    grid-template-columns: 1fr;
-    grid-template-rows: 43vh 1fr;
+  .project-dialog {
+    width: calc(100vw - 12px);
+    height: calc(100vh - 12px);
   }
 
-  .dialog__content {
-    overflow-y: auto;
-    justify-content: flex-start;
-    padding: 30px 25px;
+  .dialog__close {
+    top: 17px;
+    right: 17px;
+  }
+
+  .dialog__header {
+    display: block;
+    min-height: auto;
+    padding-top: 100px;
   }
 
   .dialog__type {
-    margin-bottom: 30px;
+    margin-bottom: 45px;
   }
 
-  .dialog__location {
-    margin-bottom: 28px;
+  .dialog__heading h2 {
+    font-size: clamp(55px, 17vw, 90px);
+  }
+
+  .dialog__introduction {
+    margin-top: 10vh;
+  }
+
+  .dialog__hero img {
+    height: 58vh;
+  }
+
+  .dialog__story {
+    display: block;
+    padding-top: 12vh;
+    padding-bottom: 12vh;
+  }
+
+  .dialog__story > div:last-child {
+    margin-top: 7vh;
+  }
+
+  .dialog__gallery-section {
+    padding-top: 11vh;
+  }
+
+  .dialog__gallery-heading {
+    display: block;
+    margin-bottom: 8vh;
+  }
+
+  .dialog__gallery-heading h3 {
+    margin: 25px 0 10px;
+  }
+
+  .dialog__image-count {
+    text-align: left;
+  }
+
+  .dialog__gallery {
+    display: block;
+  }
+
+  .dialog__gallery figure {
+    margin-bottom: 8vh;
   }
 }
 
